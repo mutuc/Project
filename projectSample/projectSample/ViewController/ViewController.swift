@@ -9,11 +9,16 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    let mainDelegate = UIApplication.shared.delegate as! AppDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         //Hello World!!!!
+    }
+    
+    @IBAction func loginOnClick(){
+        mainDelegate.readDataFromUser()
+        print(mainDelegate.userIsAuthenitcated(username: "miguel", password: "password1"))
     }
 
 
