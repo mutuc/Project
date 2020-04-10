@@ -208,13 +208,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     //Adds user to the database
-    func insertDataToUser( username u : String, password p : String){
+    func insertDataToUser( username u : String, password p : String) -> Bool{
         var db : OpaquePointer? = nil
+        var returnCode : Bool = true
         
         if sqlite3_open(self.databasePath, &db) == SQLITE_OK {
             print("Successfully opened connection to database at \(String(describing: self.databasePath))")
             var insertStatement: OpaquePointer?
-            let insertStatementString = "insert into users values(NULL, '\(u)','\(p)';"
+            let insertStatementString = "insert into users values(NULL, '\(u)','\(p)');"
             
             // 1
             if sqlite3_prepare_v2(db, insertStatementString, -1, &insertStatement, nil) ==
@@ -226,14 +227,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     print("\nSuccessfully inserted row.")
                 } else {
                     print("\nCould not insert row.")
+                    returnCode = false
                 }
             } else {
                 print("\nINSERT statement is not prepared.")
+                returnCode = false
             }
             // 5
             sqlite3_finalize(insertStatement)
         }
         sqlite3_close(db)
+        return returnCode
     }
     
     func getUserName(id i :Int) -> String?{
