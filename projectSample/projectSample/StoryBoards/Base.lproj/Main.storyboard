@@ -434,7 +434,11 @@
                                                 <segue destination="CUo-EX-BWo" kind="unwind" unwindAction="unwindToAvailableBookWithSender:" id="KnH-8E-nO7"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="Wec-cQ-FAS"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="Wec-cQ-FAS">
+                                            <connections>
+                                                <action selector="shareButtonClickWithSender:" destination="5hT-6u-2iA" id="CyO-WP-wsK"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>

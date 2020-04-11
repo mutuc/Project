@@ -40,6 +40,21 @@ class BookInfoViewController: UIViewController {
         
     }
     
+    /*
+     Here is the code for sharing the book title and author. 
+     */
+    
+    @IBAction func shareButtonClick(sender:UIButton){
+        let book = mainDelegate.bookSelected
+        let shareContentTitle = book?.title
+        let shareContentAuthor  = book?.author
+        
+        let activityVC = UIActivityViewController(activityItems: [shareContentTitle!,shareContentAuthor!], applicationActivities: nil)
+        activityVC.popoverPresentationController?.sourceView = self.view
+        
+        self.present(activityVC, animated:true, completion: nil)
+    }
+    
 
     /*
     // MARK: - Navigation
