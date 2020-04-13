@@ -37,12 +37,16 @@ class ViewController: UIViewController {
             alertController.addAction(cancelAction)
             present(alertController, animated: true)
         } else {
+            
             let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let abVC = storyboard.instantiateViewController(withIdentifier: "AddBookViewController") 
+            
+            let abVC = storyboard.instantiateViewController(withIdentifier: "AvailableBookViewController")
+            
             self.present(abVC, animated: true, completion: nil)
             
             
         }
+ 
         
     }
 
