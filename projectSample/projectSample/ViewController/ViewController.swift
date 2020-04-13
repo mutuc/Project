@@ -38,17 +38,11 @@ class ViewController: UIViewController {
             present(alertController, animated: true)
         } else {
             let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let abVC = storyboard.instantiateViewController(withIdentifier: "AddBookViewController") as! ViewController
+            let abVC = storyboard.instantiateViewController(withIdentifier: "AddBookViewController") 
             self.present(abVC, animated: true, completion: nil)
             
             
         }
-        
-        
-        //add error on false
-        
-        //add redirect on success
-        
         
     }
 
@@ -56,8 +50,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        //Hello World!!!!
+      
     }
     
  
