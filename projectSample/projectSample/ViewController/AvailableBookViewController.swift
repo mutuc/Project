@@ -27,6 +27,10 @@ class AvailableBookViewController: UIViewController, UITableViewDataSource, UITa
         
         tableCell.primaryLabel.text = mainDelegate.books[rowNum].title
         tableCell.secondaryLabel.text = mainDelegate.books[rowNum].author
+        let img = UIImage(named: mainDelegate.books[rowNum].image!) ?? UIImage(named: "none")
+        tableCell.myImageView.image = img
+        tableCell.myImageView.contentMode = .scaleAspectFit
+
         
         tableCell.accessoryType = .disclosureIndicator
         return tableCell

@@ -26,6 +26,9 @@ class BookReviewsViewController: UIViewController, UITableViewDataSource, UITabl
         tableCell.primaryLabel.text = mainDelegate.getUserName(id: mainDelegate.bookReviewSelected[rowNum].userId!) ?? "N/A"
         
         tableCell.secondaryLabel.text = "Score: " + String(mainDelegate.bookReviewSelected[rowNum].rating!)
+        let img = UIImage(named: "userIcon")
+        tableCell.myImageView.image = img
+        tableCell.myImageView.contentMode = .scaleAspectFit
         
         
         
