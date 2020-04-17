@@ -16,7 +16,7 @@ class AddBookViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet var tfPublisher: UITextField!
     @IBOutlet var tfGenre: UITextField!
     
-  
+    var imageStr : String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +42,7 @@ class AddBookViewController: UIViewController, UIImagePickerControllerDelegate, 
         } ))
       actionSheet.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: {(action:UIAlertAction)in
         imagePickerController.sourceType = .photoLibrary
+        
         self.present(imagePickerController, animated: true, completion: nil)
       }))
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -52,7 +53,33 @@ class AddBookViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         
         let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
-        imageView.image = image
+//        let imageData:Data = image.pngData()!
+//         imageStr = imageData.base64EncodedString()
+        //to-do
+        //find out how to upload to image folder
+        //name of image = Image + counter + .png
+        //counter++
+        let newImage = UIImage.init(named: "myimage")
+        
+        
+        let date :NSDate = NSDate()
+        
+        let dateFormatter = DateFormatter()
+        //dateFormatter.dateFormat = "yyyy-MM-dd'_'HH:mm:ss"
+        dateFormatter.dateFormat = "yyyy-MM-dd'_'HH_mm_ss"
+        
+        dateFormatter.timeZone = NSTimeZone(name: "GMT") as TimeZone?
+        
+        let imageName = "/\(dateFormatter.string(from: date as Date)).jpg"
+        print(imageName)
+        //var paths: [AnyObject] = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, true)
+        //var documentsDirectoryPath = getDocumentsURL().relativePath
+        var documentsDirectoryPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        documentsDirectoryPath += imageName
+        print(documentsDirectoryPath)
+        
+       // let settingsData: NSData = UIImageJPEGRepresentation(newImage!, 1.0)! as NSData
+       // imageView.image = image
         picker.dismiss(animated: true, completion: nil)
     }
     
@@ -64,13 +91,18 @@ class AddBookViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBAction func addBook(sender: Any)
     {
         let mainDelegate = UIApplication.shared.delegate as! AppDelegate
-        
+        let counter = 1;
         let book : BookData = BookData.init()
-        let imgData = imageView.debugDescription
+        let imgData = "image"
+       
         book.initWithValues(id: 0, title: tfTitle.text!, author: tfAuthor.text!, publisher: tfPublisher.text!, genre: tfGenre.text!, image: imgData)
+      
+        
+        
         
         mainDelegate.insertDataToBook(title: tfTitle.text!, author: tfAuthor.text!, publisher: tfPublisher.text!, genre: tfGenre.text!, imga: imgData)
         
+    
         var returnMSG : String = "Book Added"
     
         let alertController = UIAlertController(title: "SQLite Add", message: returnMSG, preferredStyle: .alert)

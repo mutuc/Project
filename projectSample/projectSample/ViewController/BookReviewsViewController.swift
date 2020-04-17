@@ -30,8 +30,7 @@ class BookReviewsViewController: UIViewController, UITableViewDataSource, UITabl
         tableCell.myImageView.image = img
         tableCell.myImageView.contentMode = .scaleAspectFit
         
-        
-        
+ 
         tableCell.accessoryType = .disclosureIndicator
         return tableCell
     }
@@ -39,7 +38,8 @@ class BookReviewsViewController: UIViewController, UITableViewDataSource, UITabl
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let rowNum = indexPath.row
         
-        if(mainDelegate.currentUsers?.id == mainDelegate.bookReviewSelected[rowNum].userId){
+        if(mainDelegate.currentUsers?.id == mainDelegate.bookReviewSelected[rowNum].userId)
+        {
             mainDelegate.reviewSelected = mainDelegate.bookReviewSelected[rowNum]
             performSegue(withIdentifier: "bookReviewToEditReview", sender: nil)
 

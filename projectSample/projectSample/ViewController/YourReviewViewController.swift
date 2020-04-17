@@ -60,17 +60,9 @@ class YourReviewViewController: UIViewController, UIImagePickerControllerDelegat
     @IBAction func addReview(sender: Any)
     {
        let mainDelegate = UIApplication.shared.delegate as! AppDelegate
-        
-     //   let rate = slRate.value
-      //  let strVol = String(format: "%.2f", vol)
-        
-//        let book : BookData = mainDelegate.books[1];
-//        let user : UsersData = UsersData.init()
-//        let review : BookReviewData = BookReviewData.init()
          let imgData = imageView.debugDescription
-        
-//        mainDelegate.bookReviews.in(id: 0, userID: UsersData.id!, bookId: BookData.id!, rating: Int(slRate.value), review: tfReview.text!, coverImage: imgData)
-        
+
+//        lbrate.text = String(slRate.value)
         mainDelegate.insertDataToBookReview(userId: mainDelegate.currentUsers!.id!, bookId: mainDelegate.bookSelected!.id!, rating: Int(slRate.value), review: tfReview.text!, coverImg: imgData)
         
         
@@ -87,10 +79,16 @@ class YourReviewViewController: UIViewController, UIImagePickerControllerDelegat
     
     @IBAction func sliderValueChange(sender : UISlider)
     {
-          let rate = slRate.value
-         let strRate = String(rate)
-        lbrate.text = strRate
+        
+        
+        lbrate.text = String(format: "%.2f", slRate.value)
     }
+    
+//    func updateLabel()
+//    {
+//        let rate= slRate.value
+//        
+//    }
     /*
     // MARK: - Navigation
 

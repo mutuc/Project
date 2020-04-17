@@ -78,6 +78,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 if sqlite3_step(insertStatement) == SQLITE_DONE {
                     
                     print("\nSuccessfully inserted row.")
+                    print()
                 } else {
                     print("\nCould not insert row.")
                 }
@@ -121,10 +122,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     let data : BookData = BookData.init()
                     data.initWithValues(id: id, title: title, author: author, publisher: publisher, genre: genre, image: img)
                     books.append(data)
+                   
                     
+                  //  print(img)
+//                    print(title)
+//                    print(author)
+//                    print(publisher)
+//                    print(genre)
                 }
                 
                 sqlite3_finalize(queryStatement)
+                
+                
                 
             } else {
                 print("Select statment could not be prepared")
@@ -183,7 +192,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if sqlite3_open(self.databasePath, &db) == SQLITE_OK {
             print("Successfully opened connection to database at \(String(describing: self.databasePath))")
             var insertStatement: OpaquePointer?
-            let insertStatementString = "insert into bookReview values(null, ?,?,?,'Great book! one of my favorites', 'none');"
+            let insertStatementString = "insert into bookReview values(null, ?,?,?,'\(rev)', '\(aI)');"
             
             // 1
             if sqlite3_prepare_v2(db, insertStatementString, -1, &insertStatement, nil) ==

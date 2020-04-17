@@ -12,6 +12,7 @@ class AvailableBookViewController: UIViewController, UITableViewDataSource, UITa
     let mainDelegate = UIApplication.shared.delegate as! AppDelegate
     
     
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return mainDelegate.books.count
     }
@@ -52,6 +53,7 @@ class AvailableBookViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     @IBAction func unwindToAvailableBook(sender: UIStoryboardSegue){
+     viewDidLoad()
         
     }
     
