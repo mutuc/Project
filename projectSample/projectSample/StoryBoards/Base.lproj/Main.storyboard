@@ -118,7 +118,6 @@
                         <viewLayoutGuide key="safeArea" id="oh8-jr-vaj"/>
                     </view>
                     <connections>
-                        <outlet property="table" destination="QZu-d5-ibQ" id="cms-PZ-WMb"/>
                         <segue destination="5hT-6u-2iA" kind="presentation" identifier="availableBookToBookInfo" id="ejQ-gH-lE2"/>
                     </connections>
                 </viewController>
