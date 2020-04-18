@@ -63,7 +63,7 @@ class YourReviewViewController: UIViewController, UIImagePickerControllerDelegat
          let imgData = imageView.debugDescription
 
 //        lbrate.text = String(slRate.value)
-        mainDelegate.insertDataToBookReview(userId: mainDelegate.currentUsers!.id!, bookId: mainDelegate.bookSelected!.id!, rating: Int(slRate.value), review: tfReview.text!, coverImg: imgData)
+        mainDelegate.insertDataToBookReview(userId: mainDelegate.currentUsers!.id!, bookId: mainDelegate.bookSelected!.id!, rating: Int(slRate!.value), review: tfReview.text!, coverImg: imgData)
         
         
         var returnMSG : String = "Review Added"

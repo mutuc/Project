@@ -192,14 +192,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if sqlite3_open(self.databasePath, &db) == SQLITE_OK {
             print("Successfully opened connection to database at \(String(describing: self.databasePath))")
             var insertStatement: OpaquePointer?
-            let insertStatementString = "insert into bookReview values(null, ?,?,?,'\(rev)', '\(aI)');"
-            
+            let insertStatementString = "insert into bookReview values(null, ?,?,?,?, ?);"
+            print(insertStatementString)
             // 1
             if sqlite3_prepare_v2(db, insertStatementString, -1, &insertStatement, nil) ==
                 SQLITE_OK {
+                
+                let revTwo = rev as NSString
+                let aITow = aI as NSString
+                
+                
                 sqlite3_bind_int(insertStatement, 1, Int32(u))
                 sqlite3_bind_int(insertStatement, 2, Int32(b))
                 sqlite3_bind_int(insertStatement, 3, Int32(r))
+                sqlite3_bind_text(insertStatement, 4, revTwo.utf8String, -1, nil)
+                sqlite3_bind_text(insertStatement, 5, aITow.utf8String, -1, nil)
                 
                 if sqlite3_step(insertStatement) == SQLITE_DONE {
                     
