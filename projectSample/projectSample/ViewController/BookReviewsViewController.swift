@@ -58,8 +58,13 @@ class BookReviewsViewController: UIViewController, UITableViewDataSource, UITabl
         // Do any additional setup after loading the view.
     }
     
+    @IBOutlet var tableControl:UITableView!
+    
+    
+    
     @IBAction func unwindToBookReview(sender: UIStoryboardSegue){
-        
+     mainDelegate.getBookReviews(bookSelectedID: mainDelegate.bookSelected!.id!)
+        tableControl.reloadData()
     }
     
 

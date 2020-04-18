@@ -11,7 +11,16 @@ import UIKit
 class AvailableBookViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     let mainDelegate = UIApplication.shared.delegate as! AppDelegate
     
-    
+//    var refresher: UIRefreshControl!
+//
+//    func refresh(){
+//
+//        print("refreshed")
+//        self.tableView.reloadData()
+//        self.refresher.endRefreshing()
+//
+//    }
+//
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return mainDelegate.books.count
@@ -52,9 +61,12 @@ class AvailableBookViewController: UIViewController, UITableViewDataSource, UITa
         // Do any additional setup after loading the view.
     }
     
+    @IBOutlet var tableControl:UITableView!
+    
     @IBAction func unwindToAvailableBook(sender: UIStoryboardSegue){
     
-        
+       mainDelegate.readDataFromBook()
+        tableControl.reloadData()
     }
     
 

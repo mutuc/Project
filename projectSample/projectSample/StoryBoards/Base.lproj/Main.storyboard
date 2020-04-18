@@ -118,6 +118,7 @@
                         <viewLayoutGuide key="safeArea" id="oh8-jr-vaj"/>
                     </view>
                     <connections>
+                        <outlet property="tableControl" destination="QZu-d5-ibQ" id="4nh-em-grp"/>
                         <segue destination="5hT-6u-2iA" kind="presentation" identifier="availableBookToBookInfo" id="ejQ-gH-lE2"/>
                     </connections>
                 </viewController>
@@ -598,6 +599,7 @@
                         <viewLayoutGuide key="safeArea" id="UBI-Wg-P4A"/>
                     </view>
                     <connections>
+                        <outlet property="tableControl" destination="Lfo-nf-5Bu" id="9xC-aG-7OZ"/>
                         <segue destination="jR7-zi-k4J" kind="presentation" identifier="bookReviewToEditReview" id="pYN-FO-zoP"/>
                         <segue destination="re4-yE-IjD" kind="presentation" identifier="BookReviewToViewReview" id="xFr-XR-4rr"/>
                     </connections>
@@ -633,62 +635,26 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rating:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6X0-1b-ADA">
-                                <rect key="frame" x="43" y="132" width="70" height="28"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Review:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AeY-er-frc">
-                                <rect key="frame" x="43" y="422" width="84" height="29"/>
+                                <rect key="frame" x="20" y="116" width="84" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="iSO-Vx-bfm">
-                                <rect key="frame" x="135" y="422" width="212" height="264"/>
+                                <rect key="frame" x="132" y="116" width="212" height="264"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">This is where you'll leave your really long and heft review about everything you liked and hated about this book. As of now this is nothing but a place holder</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Image:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Tq-Y5-HPS">
-                                <rect key="frame" x="43" y="218" width="70" height="26"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LYz-xD-VRm">
-                                <rect key="frame" x="135" y="218" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ICl-57-smx">
-                                <rect key="frame" x="326" y="354" width="49" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Upload"/>
-                                <connections>
-                                    <action selector="chooseImageWith_sender:" destination="jR7-zi-k4J" eventType="touchUpInside" id="n21-bR-CxU"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1WY-6m-keL">
-                                <rect key="frame" x="144" y="136" width="81" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="1JH-vD-7gb"/>
                     </view>
                     <connections>
-                        <outlet property="imageView" destination="LYz-xD-VRm" id="5s7-rk-qRx"/>
-                        <outlet property="lbrate" destination="1WY-6m-keL" id="9YW-ut-QR7"/>
                         <outlet property="tfReview" destination="iSO-Vx-bfm" id="RUF-4P-RtJ"/>
                     </connections>
                 </viewController>

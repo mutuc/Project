@@ -79,7 +79,7 @@ class AddBookViewController: UIViewController, UIImagePickerControllerDelegate, 
         print(documentsDirectoryPath)
         
        // let settingsData: NSData = UIImageJPEGRepresentation(newImage!, 1.0)! as NSData
-       // imageView.image = image
+       imageView.image = image
         picker.dismiss(animated: true, completion: nil)
     }
     
